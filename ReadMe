@@ -1,0 +1,31 @@
+Day 2
+
+Django Skills:
+API Creation and Management:
+
+Learned about Django REST Framework for building APIs.
+Created serializers to convert Django models to JSON format.
+Developed views using Django's generics.ListAPIView and CreateAPIVews to handle API requests.
+
+URL Routing:
+
+Implemented URL routing with path and include to organise and manage URLs in Django projects.
+Linked Django app-specific URLs to the main project URLs.
+
+Model Definition:
+Defined Django models with various field types (e.g., CharField, BooleanField, DateTimeField).
+Used methods to generate unique values for model fields.
+Created and applied serializers for models to manage data flow between the database and API responses.
+
+Serving Static Files:
+
+Frontend Skills:
+React Basics:
+Set up a basic React environment and created class components.
+Used React’s render method (before React 18) and createRoot (in React 18 and later) to render components into the DOM.
+Managed component structure and used JSX syntax to define UI elements.
+
+JavaScript/React Integration:
+
+Integrated React components into Django templates using static files.
+Ensured correct DOM manipulation by linking React components to specific HTML elements using IDs.

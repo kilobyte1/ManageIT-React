@@ -20,13 +20,15 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    #endpoints
     path('admin/', admin.site.urls),
     #using 'include('api.urls')' means all the url paths in the api.url will be avialable to the project
     #Instead of putting all URL patterns in the main urls.py file 
         #(usually located in the project directory) (here), we will delegate some of them to individual apps.
      #<<<include() allows you to include these app-specific URL configurations in the main urls.py. 
      #This makes the project easier to maintain and organise.>>>
-    path('', include('api.urls')),
+    path('api/', include('api.urls')),
+    path('', include('frontend.urls'))
        
     
 ]
