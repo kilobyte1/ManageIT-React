@@ -29,3 +29,30 @@ JavaScript/React Integration:
 
 Integrated React components into Django templates using static files.
 Ensured correct DOM manipulation by linking React components to specific HTML elements using IDs.
+
+Django Model and Migration Handling:
+
+I learned how to handle migrations in Django, ensuring that my database schema matches my models.
+
+Working with Django Views and Serializers:
+
+I explored how to use Django's APIView to handle HTTP requests, specifically for creating a room.
+
+I learned to use serializers to validate and process input data. This included ensuring consistency between field names in the model and serializer.
+
+Session Management in Django:
+
+I discovered how to check if a session exists and how to create a new session if one does not. This is Important for tracking users or hosts across different requests.
+I learned to correctly retrieve and use the session key to manage resources like rooms linked to a particular user or session.
+
+Debugging Common Issues:
+
+I encountered and resolved several common errors, such as:
+
+Method call syntax issues (room.save should be room.save()).
+Correct usage of serializer.validated_data instead of serializer.data after validation.
+
+Properly handling and updating fields in the database.
+I also worked on ensuring the code's response status codes accurately reflect the outcome of the request (e.g., HTTP_201_CREATED for successful creation).
+
+Attention to Detail:
