@@ -19,13 +19,61 @@ export default class CreateRoomPage extends Component{
 
     render(){
         return (
-        <Grid container spacing={1}>
-            <Grid item xs={12} align="center">
-            <Typography component="h4" variant ="h4">
-                Create a room
-            </Typography>
+            <Grid container spacing={1}>
+                {/* Grid item for the header */}
+                <Grid item xs={12} align="center">
+                    <Typography component="h4" variant="h4">
+                        Create a room
+                    </Typography>
+                </Grid>
+    
+                {/* Grid item for guest control radio buttons */}
+                <Grid item xs={12} align="center">
+                    <FormControl component="fieldset">
+                        <FormHelperText>
+                            <div align="center">
+                                Guest Control of Playback
+                            </div>
+                        </FormHelperText>
+                        <RadioGroup row defaultValue="true">
+                            {/* Option for guests to control Play/Pause */}
+                            <FormControlLabel 
+                                value="true" 
+                                control={<Radio color="primary"/>} 
+                                label="Play/Pause"
+                                labelPlacement="bottom"
+                            />
+                            {/* Option for guests to have no control */}
+                            <FormControlLabel 
+                                value="false" 
+                                control={<Radio color="secondary"/>} 
+                                label="No control"
+                                labelPlacement="bottom"
+                            />
+                        </RadioGroup>
+                    </FormControl>
+                </Grid>
+    
+                {/* Grid item for setting the number of votes required to skip a song */}
+                <Grid item xs={12} align="center">
+                    <FormControl>
+                        {/* Text field to input the number of votes */}
+                        <TextField 
+                            required={true} 
+                            type="number" 
+                            defaultValue={this.defaultVotes} 
+                            inputProps={{
+                                min: 1,
+                                style: { textAlign: "center" }
+                            }}
+                        />
+                        <FormHelperText align="center">
+                            Votes required to skip song
+                        </FormHelperText>
+                    </FormControl>
+                </Grid>
             </Grid>
-        </Grid>
         );
     }
+    
 }
