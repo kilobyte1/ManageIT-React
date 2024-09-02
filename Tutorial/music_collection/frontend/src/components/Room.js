@@ -1,28 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const Room = () => {
   const { roomCode } = useParams();
 
-  const [state, setState] = React.useState({
-    votesToSkip: 40,
+  const [state, setState] = useState({
+    votesToSkip: 10,
     guestCanPause: false,
     isHost: true,
   });
 
-  function getRoomDetails() {
-    fetch("/api/get-room" + "?code" + roomCode)
-      .then((response) => response.json())
-      .then((data) => {
-        this.setState({
-          votesToSkip: data.votes_to_skip,
-          guestCanPause: data.guest_can_pause,
-          isHost: data.is_host,
+  /**fetch details about a room from a backend API and update
+   * the component's state with the retrieved data. */
+  //
+  useEffect(() => {
+    //This ensures that getRoomDetails is called only when
+    // the component mounts or when roomCode changes, preventing infinite loops.
+    function getRoomDetails() {
+      fetch("/api/get-room" + "?code=" + roomCode)
+        .then((response) => response.json())
+        .then((data) => {
+          setState({
+            votesToSkip: data.votes_to_skip,
+            guestCanPause: data.guests_can_pause,
+            isHost: data.is_host,
+          });
         });
-      });
-  }
+    }
 
-  getRoomDetails();
+    getRoomDetails();
+  }, [roomCode]); // The effect will run when roomCode changes
 
   return (
     <div>
