@@ -17,7 +17,7 @@ const RoomJoinPage = () => {
     //properties of prevState remain intact while only roomCode is updated.
     setState({ ...state, roomCode: e.target.value });
   };
-  //WNDKGZ
+
   const roomButtonPressed = () => {
     const requestOptions = {
       method: "POST",
