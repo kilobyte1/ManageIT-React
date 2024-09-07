@@ -22,6 +22,7 @@ const RoomJoinPage = () => {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      //pass the room code as the body
       body: JSON.stringify({
         code: state.roomCode,
       }),
@@ -31,6 +32,7 @@ const RoomJoinPage = () => {
         if (response.ok) {
           navigate(`/room/${state.roomCode}`);
         } else {
+          //update and add text to the error state
           setState({ ...state, error: "Room not found" });
         }
       })
@@ -48,11 +50,13 @@ const RoomJoinPage = () => {
       </Grid>
       <Grid item xs={12} align="center">
         <TextField
+          //error will change the apearance of the field to red
           error={state.error}
           label="Code"
           placeholder="Enter a Room code"
           value={state.roomCode}
-          helptext={state.error}
+          //helpertext will display the error when there is
+          helperText={state.error}
           variant="filled"
           onChange={handleRoomCode}
         />
